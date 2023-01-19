@@ -40,6 +40,7 @@ searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(searchForm);
     // Slice C: Call findCountries with continent from formData
+    findCountries(formData.get('continent'));
 });
 
 /* Display Functions */
@@ -57,5 +58,7 @@ function displayCountries() {
 function displayContinentOptions() {
     for (const continent of continents) {
         // Slice B: Call continent render function and append to continent selector
+        const continentEl = renderContinentOption(continent);
+        continentSelect.append(continentEl);
     }
 }
